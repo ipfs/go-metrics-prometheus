@@ -1,8 +1,6 @@
 package metricsprometheus
 
 import (
-	"fmt"
-	"os"
 	"runtime/debug"
 	"strings"
 
@@ -16,15 +14,14 @@ var log logging.EventLogger = logging.Logger("metrics-prometheus")
 func init() {
 	err := metrics.InjectImpl(newCreator)
 	if err != nil {
-		fmt.Fprintln(os.Stderr,
-			"Failed to inject go-metrics-prometheus into go-metrics-interface.")
+		log.Errorf("Failed to inject go-metrics-prometheus into go-metrics-interface.")
 		debug.PrintStack()
 	}
 }
 
 func newCreator(name, helptext string) metrics.Creator {
 	return &creator{
-		name:     strings.Replace(helptext, ".", "_", -1),
+		name:     strings.Replace(name, ".", "_", -1),
 		helptext: helptext,
 	}
 }

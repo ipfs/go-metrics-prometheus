@@ -10,7 +10,7 @@
   "gxDependencies": [
     {
       "author": "whyrusleeping",
-      "hash": "QmdUib18JngJSGT4YhcG1J1wwMtNKGWzwnTEWowYuYCkwd",
+      "hash": "QmR3KwhXCRLTNZB59vELb2HhEWrGy9nuychepxFtj3wWYa",
       "name": "client_golang",
       "version": "0.1.0"
     },
@@ -19,11 +19,16 @@
       "hash": "QmVWBQQAz4Cd2XgW9KgQoqXXrU8KJoCb9WCrhWRFVBKvFe",
       "name": "go-metrics-interface",
       "version": "0.1.1"
+    },
+    {
+      "hash": "QmSpJByNKFX1sCsHBEp3R73FL4NF6FnQTEGyNAXHm2GS52",
+      "name": "go-log",
+      "version": "1.2.0"
     }
   ],
   "gxVersion": "0.9.0",
   "language": "go",
   "license": "MIT",
   "name": "go-metrics-prometheus",
-  "version": "0.1.0"
+  "version": "0.1.1"
 }
