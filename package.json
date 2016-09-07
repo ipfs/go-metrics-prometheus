@@ -16,9 +16,9 @@
     },
     {
       "author": "ipfs",
-      "hash": "QmVWBQQAz4Cd2XgW9KgQoqXXrU8KJoCb9WCrhWRFVBKvFe",
+      "hash": "QmRg1gKTHzc3CZXSKzem8aR4E3TubFhbgXwfVuWnSK5CC5",
       "name": "go-metrics-interface",
-      "version": "0.1.1"
+      "version": "0.1.2"
     },
     {
       "hash": "QmSpJByNKFX1sCsHBEp3R73FL4NF6FnQTEGyNAXHm2GS52",
@@ -30,5 +30,5 @@
   "language": "go",
   "license": "MIT",
   "name": "go-metrics-prometheus",
-  "version": "0.1.1"
+  "version": "0.1.2"
 }
