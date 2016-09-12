@@ -10,7 +10,7 @@ import (
 
 var log logging.EventLogger = logging.Logger("metrics-prometheus")
 
-func Inject() {
+func Inject() error {
 	return metrics.InjectImpl(newCreator)
 }
 
