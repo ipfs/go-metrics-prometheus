@@ -1,7 +1,6 @@
 package metricsprometheus
 
 import (
-	"runtime/debug"
 	"strings"
 
 	pro "github.com/gxed/client_golang/prometheus"
@@ -11,12 +10,8 @@ import (
 
 var log logging.EventLogger = logging.Logger("metrics-prometheus")
 
-func init() {
-	err := metrics.InjectImpl(newCreator)
-	if err != nil {
-		log.Errorf("Failed to inject go-metrics-prometheus into go-metrics-interface.")
-		debug.PrintStack()
-	}
+func Inject() {
+	return metrics.InjectImpl(newCreator)
 }
 
 func newCreator(name, helptext string) metrics.Creator {
