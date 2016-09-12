@@ -30,5 +30,5 @@
   "language": "go",
   "license": "MIT",
   "name": "go-metrics-prometheus",
-  "version": "0.1.2"
+  "version": "0.2.0"
 }
