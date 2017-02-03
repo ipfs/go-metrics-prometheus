@@ -10,9 +10,9 @@
   "gxDependencies": [
     {
       "author": "whyrusleeping",
-      "hash": "QmR3KwhXCRLTNZB59vELb2HhEWrGy9nuychepxFtj3wWYa",
+      "hash": "QmX3QZ5jHEPidwUrymXV1iSCSUhdGxj15sm2gP4jKMef7B",
       "name": "client_golang",
-      "version": "0.1.0"
+      "version": "0.1.1"
     },
     {
       "author": "ipfs",
@@ -30,5 +30,7 @@
   "language": "go",
   "license": "MIT",
   "name": "go-metrics-prometheus",
-  "version": "0.3.0"
+  "releaseCmd": "git commit -a -m \"gx publish $VERSION\"",
+  "version": "0.3.1"
 }
+
