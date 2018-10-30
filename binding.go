@@ -3,9 +3,9 @@ package metricsprometheus
 import (
 	"strings"
 
-	pro "github.com/gxed/client_golang/prometheus"
 	logging "github.com/ipfs/go-log"
 	metrics "github.com/ipfs/go-metrics-interface"
+	pro "github.com/prometheus/client_golang/prometheus"
 )
 
 var log logging.EventLogger = logging.Logger("metrics-prometheus")
