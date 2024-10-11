@@ -3,7 +3,7 @@ package metricsprometheus
 import (
 	"strings"
 
-	logging "github.com/ipfs/go-log"
+	logging "github.com/ipfs/go-log/v2"
 	metrics "github.com/ipfs/go-metrics-interface"
 	pro "github.com/prometheus/client_golang/prometheus"
 )
@@ -37,11 +37,11 @@ func (c *creator) Counter() metrics.Counter {
 	if err != nil {
 		if registered, ok := err.(pro.AlreadyRegisteredError); ok {
 			if existing, ok := registered.ExistingCollector.(pro.Counter); ok {
-				log.Warningf("using existing prometheus collector: %s\n", c.name)
+				log.Warnf("using existing prometheus collector: %s", c.name)
 				return existing
 			}
 		}
-		log.Errorf("Registering prometheus collector, name: %s, error: %s\n", c.name, err.Error())
+		log.Errorf("Registering prometheus collector, name: %s, error: %s", c.name, err.Error())
 	}
 	return res
 }
@@ -54,11 +54,11 @@ func (c *creator) Gauge() metrics.Gauge {
 	if err != nil {
 		if registered, ok := err.(pro.AlreadyRegisteredError); ok {
 			if existing, ok := registered.ExistingCollector.(pro.Gauge); ok {
-				log.Warningf("using existing prometheus collector: %s\n", c.name)
+				log.Warnf("using existing prometheus collector: %s", c.name)
 				return existing
 			}
 		}
-		log.Errorf("Registering prometheus collector, name: %s, error: %s\n", c.name, err.Error())
+		log.Errorf("Registering prometheus collector, name: %s, error: %s", c.name, err.Error())
 	}
 	return res
 }
@@ -72,11 +72,11 @@ func (c *creator) Histogram(buckets []float64) metrics.Histogram {
 	if err != nil {
 		if registered, ok := err.(pro.AlreadyRegisteredError); ok {
 			if existing, ok := registered.ExistingCollector.(pro.Histogram); ok {
-				log.Warningf("using existing prometheus collector: %s\n", c.name)
+				log.Warnf("using existing prometheus collector: %s", c.name)
 				return existing
 			}
 		}
-		log.Errorf("Registering prometheus collector, name: %s, error: %s\n", c.name, err.Error())
+		log.Errorf("Registering prometheus collector, name: %s, error: %s", c.name, err.Error())
 	}
 	return res
 }
@@ -95,11 +95,11 @@ func (c *creator) Summary(opts metrics.SummaryOpts) metrics.Summary {
 	if err != nil {
 		if registered, ok := err.(pro.AlreadyRegisteredError); ok {
 			if existing, ok := registered.ExistingCollector.(pro.Summary); ok {
-				log.Warningf("using existing prometheus collector: %s\n", c.name)
+				log.Warn("using existing prometheus collector: %s", c.name)
 				return existing
 			}
 		}
-		log.Errorf("Registering prometheus collector, name: %s, error: %s\n", c.name, err.Error())
+		log.Errorf("Registering prometheus collector, name: %s, error: %s", c.name, err.Error())
 	}
 	return res
 }
