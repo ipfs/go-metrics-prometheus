@@ -1,6 +1,6 @@
 module github.com/ipfs/go-metrics-prometheus
 
-go 1.22
+go 1.23
 
 require (
 	github.com/ipfs/go-log/v2 v2.5.1
