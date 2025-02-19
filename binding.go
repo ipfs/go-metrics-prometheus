@@ -45,6 +45,39 @@ func (c *creator) Counter() metrics.Counter {
 	}
 	return res
 }
+
+type counterVec struct {
+	*pro.CounterVec
+}
+
+func (cv *counterVec) WithLabelValues(lvs ...string) metrics.Counter {
+	return cv.CounterVec.WithLabelValues(lvs...)
+}
+
+func (c *creator) CounterVec(labelNames []string) metrics.CounterVec {
+	res := pro.NewCounterVec(pro.CounterOpts{
+		Name: c.name,
+		Help: c.helptext,
+	}, labelNames)
+
+	err := pro.Register(res)
+	if err != nil {
+		if registered, ok := err.(pro.AlreadyRegisteredError); ok {
+			if existing, ok := registered.ExistingCollector.(*pro.CounterVec); ok {
+				log.Warnf("using existing prometheus collector: %s", c.name)
+				return &counterVec{
+					CounterVec: existing,
+				}
+			}
+		}
+		log.Errorf("Registering prometheus collector, name: %s, error: %s", c.name, err.Error())
+	}
+
+	return &counterVec{
+		CounterVec: res,
+	}
+}
+
 func (c *creator) Gauge() metrics.Gauge {
 	res := pro.NewGauge(pro.GaugeOpts{
 		Name: c.name,
